@@ -1,0 +1,35 @@
+<h1>Custom Directives</h1>
+
+<u><h4>1. Example for Attribute Directive using ElementRef</h4></u>
+<cdmBasic></cdmBasic>
+
+<br>
+<u><h4>2. Example for Structural Directive (same  is ngIf) TemplateRef, ViewContainerRef, @Input</h4></u>
+<div *cdmIf="value">
+  <span>This is a structural Directive</span>
+</div>
+
+<br>
+<u><h4>3. Example for Structural Directive Example 2 (if else example) TemplateRef, ViewContainerRef, @Input</h4></u>
+<button (click)="showTemplate = !showTemplate">
+	Turn {{ showTemplate == false ? 'on': 'off' }}
+</button>
+<div *cdmToggleTemplate="showTemplate">
+	Toggler Value : {{ showTemplate }}
+</div>
+<div *cdmToggleTemplate="!showTemplate">
+	Toggler Value : {{ showTemplate }}
+</div>
+
+<br>
+<u><h4>4. Example for Attribute Directive with @HostBinding (same as example #1)</h4></u>
+<div cdmHostBinding></div>
+
+<br>
+<u><h4>5. Example for listning user even uding @HostListner</h4></u>
+<div cdmHostListner>Hover me</div>
+
+<br>
+<u><h4>6. Directives with service example</h4></u>
+<div>Todo</div>
+
