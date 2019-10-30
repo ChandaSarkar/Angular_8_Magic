@@ -1,0 +1,29 @@
+<h2>Custom Pipes</h2>
+
+<u><h3>1. Basic Custom Pipe</h3></u>
+<ul>
+  <li *ngFor="let name of employList"> {{ name | cdmTruncateLastName }} </li>
+</ul>
+
+<hr><br>
+<u><h3>2. Parametarized Custom Pipe to show last name or first name</h3></u>
+<div>Show First Name</div>
+<ul>
+  <li *ngFor="let name of employList"> {{ name | cdmShowName: 'firstName' }} </li>
+</ul>
+<div>Show Last Name</div>
+<ul>
+  <li *ngFor="let name of employList"> {{ name | cdmShowName: 'lastName' }} </li>
+</ul>
+
+<hr><br>
+<u><h3>3. Custom Filters in list using Pure / Impure pipes.</h3></u>
+<b>By Default pipes are pure, meaning a change in primitive / object values dont trigger digest cycle</b>
+<br>
+Filter Text <input type="text" [(ngModel)]="searchText"><br>
+{{ searchText }}<br>
+<button (click)="addNewServer()">Add Server</button>
+
+<ul>
+  <li *ngFor="let server of servers | cdmFilterPipe:searchText">{{ server.name + ' - ' + server.status }}</li>
+</ul>
