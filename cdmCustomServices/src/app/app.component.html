@@ -1,0 +1,16 @@
+<H1>Building Services</H1>
+
+<hr>
+<u><h3>1. Basic Service (Synchronous)</h3></u>
+<ul>
+  <li *ngFor="let server of Servers">{{ server.name + ' - ' + server.status }}</li>
+</ul>
+
+2. Basic Promise Example with subscribe
+{{ serverData | async }}
+
+<hr>
+<u><h3>2. Dealing with Async Service Observable, Of example from Rxjs</h3></u>
+<ul>
+  <li *ngFor="let server of asyncServerData">{{ server.name + ' - ' + server.status }}</li>
+</ul>
