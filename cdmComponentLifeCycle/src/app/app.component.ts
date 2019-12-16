@@ -20,7 +20,8 @@ AfterContentInit,
 AfterContentChecked,
 OnDestroy {
   title = 'cdmComponentLifeCycle';
-  cdmInputData: any;
+  cdmInputData: any
+  cdmInputData2: any;
 
   	constructor() 				{ console.log('PARENT :: constructor init'); 			}
 

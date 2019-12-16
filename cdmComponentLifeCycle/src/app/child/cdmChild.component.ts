@@ -3,7 +3,8 @@ import { Component,
 	DoCheck, AfterViewInit, 
 	AfterViewChecked, AfterContentInit, 
 	AfterContentChecked, OnDestroy,
-	Input
+	Input,
+	SimpleChanges
 } from '@angular/core';
 
 @Component ({
@@ -12,6 +13,7 @@ import { Component,
    	<div>Child Component</div>
    	{{cdmInputData}}
    	<input type="text" [(ngModel)]="cdmName"/>
+   	{{cdmInputData}}
    `
 })
 export class cdmChildComponent implements 
@@ -24,15 +26,32 @@ AfterContentInit,
 AfterContentChecked,
 OnDestroy
  {
- 	@Input() cdmInput: string = '';
+ 	/*@Input() cdmInput: string = '';*/
+ 	@Input() cdmInput2: string = '';
 
  	cdmName: string = "dummy";
+ 	cdmName2: string = "dummy";
 
 	constructor() 				{ console.log('CHILD :: constructor init');			}
 
 	ngOnInit() 					{ console.log('CHILD :: ngOnInit');						}
 
-	ngOnChanges() 				{ console.log('CHILD :: ngOnChanges');					}
+	// Method # 1 generic
+	ngOnChanges(changes: SimpleChanges) 				{ 
+		console.log('CHILD---- :: ngOnChanges');					
+		console.log(changes);					
+	}
+
+	// Method # 2 individual
+	@Input()
+   set cdmInput(value: string) {
+     this.cdmName = value;    
+     console.log(`title is changed to ${value}`);
+   }
+
+   get cdmInput(): string {
+     return this.cdmName;
+   }
 
 	ngDoCheck() 				{ console.log('CHILD :: ngDoCheck'); 					}
 
